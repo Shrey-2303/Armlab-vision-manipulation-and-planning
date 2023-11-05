@@ -1,0 +1,71 @@
+## Factory Intrinsic Matrix:
+[[900.71502686   0.         652.28692627]
+ [  0.         900.19250488 358.35961914]
+ [  0.           0.           1.        ]]
+
+## Calculated
+[[911.62473,          0, 647.80851225], 
+ [        0, 912.855844,  353.9881335], 
+ [        0,          0,            1]]
+
+Rx = [
+      [1 0        0]
+      [0 cos(15) -sin(15)]
+      [0 sin(15) cos(15) ]
+      ]
+
+Ry = [
+      [1 0 0]
+      [0 1 0]
+      [0 0 1]
+      ]
+
+
+Ry = [
+      [cos(-2) -sin(-2) 0]
+      [sin(-2) cos(-2)  0]
+      [0       0        1]
+      ]
+
+T = [12 175 1045]
+
+E = [R T
+     0 1]
+
+where R = Rx * Ry * Rz
+
+
+
+
+
+
+
+
+
+
+
+###################################### python representation ######################################
+alpha = np.pi/15 + np.pi
+beta  = 0.0
+gamma = -2*np.pi/180
+Rx = np.array([[1,             0,              0],
+                [0, np.cos(alpha), -np.sin(alpha)],
+                [0, np.sin(alpha),  np.cos(alpha)]], dtype=float)
+
+Ry = np.array([[ np.cos(beta), 0, np.sin(beta)],
+                [            0, 1,            0],
+                [-np.sin(beta), 0, np.cos(beta)]], dtype=float)
+
+Rz = np.array([[np.cos(gamma), -np.sin(gamma), 0],
+                [np.sin(gamma),  np.cos(gamma), 0],
+                [            0,              0, 1]], dtype=float)
+R = Rz @ Ry @ Rx
+
+# Translation
+T = np.array([12, 175, 1045]).reshape(-1, 3)
+
+# Extrinsic matrix
+E = np.zeros((4, 4), dtype=float)
+E[0:3, 0:3] = R
+E[0:3, 3] = T
+E[3, 3] = 1
