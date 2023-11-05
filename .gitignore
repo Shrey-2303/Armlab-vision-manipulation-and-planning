@@ -1,0 +1,4 @@
+install_scripts/xsarm_amd64_install.sh
+src/__pycache__/
+src/resource/__pycache__/
+data/ee.jpg
