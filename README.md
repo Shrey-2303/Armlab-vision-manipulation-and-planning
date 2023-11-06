@@ -1,5 +1,10 @@
 # armlab-f23
 
+**Heads Up**
+I have attached all the reports and final codes for the arm lab in this repository the readme below entails how one can download all the code to run their bot and the instructions on setting up the RX200 arm.
+The links for the youtube videos are given below as well.
+
+
 **Table of content**
 - [Code structure](#code-structure)
 - [How to start](#how-to-start)
